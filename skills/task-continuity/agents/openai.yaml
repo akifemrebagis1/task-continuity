@@ -1,0 +1,6 @@
+interface:
+  display_name: "Task Continuity"
+  short_description: "Finish the active task and queue new requests"
+  default_prompt: "Use $task-continuity to finish the active task, queue independent additions, and respect explicit corrections or priority changes."
+policy:
+  allow_implicit_invocation: true
