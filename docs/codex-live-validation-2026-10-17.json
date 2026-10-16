@@ -1,0 +1,85 @@
+{
+  "scenario": "independent-addition-during-data-inspection",
+  "date": "2026-10-17",
+  "timezone": "Europe/Istanbul",
+  "status": "passed",
+  "live_scenarios_run": 1,
+  "host": "Installed Codex app-server over stdio",
+  "codex_version": "0.158.0",
+  "model": "gpt-6-sol",
+  "message_delivery": "turn/steer accepted on the active turn",
+  "desktop_ui_exercised": false,
+  "claude_live_tested": false,
+  "task_a": "Create and validate a paid-order CSV summary using Decimal.",
+  "task_b": "Create greeting.txt with the exact bytes Merhaba Emre.",
+  "at_task_b_injection": {
+    "summary_existed": false,
+    "summary_verified": false,
+    "task_b_file_existed": false
+  },
+  "skill_sha256": "60bc159ff8c18d72aeb9057299a469374b5094ea9df2d6cdb30a7da541c75066",
+  "timeline": [
+    {
+      "event": "installed_skill_read",
+      "at": "2026-10-17T00:44:02.817+03:00"
+    },
+    {
+      "event": "independent_task_sent_while_task_a_unfinished",
+      "at": "2026-10-17T00:44:10.143+03:00"
+    },
+    {
+      "event": "same_active_turn_accepted_new_user_message",
+      "at": "2026-10-17T00:44:10.148+03:00"
+    },
+    {
+      "event": "task_a_validation_passed",
+      "at": "2026-10-17T00:44:52.099+03:00"
+    },
+    {
+      "event": "first_task_b_write_action_started",
+      "at": "2026-10-17T00:44:59.424+03:00"
+    },
+    {
+      "event": "task_b_file_written",
+      "at": "2026-10-17T00:44:59.676+03:00"
+    }
+  ],
+  "checks": {
+    "same_active_turn_accepted_addition": true,
+    "task_a_unfinished_when_addition_sent": true,
+    "task_a_validation_passed": true,
+    "followup_correct": true,
+    "followup_after_task_a_validation": true,
+    "provided_files_unchanged": true,
+    "turn_completed": true,
+    "first_followup_action_after_task_a_validation": true,
+    "global_instruction_file_loaded": true,
+    "installed_skill_read_before_addition": true
+  },
+  "observed_messages": [
+    "Çok adımlı iş için task-continuity yönergesini uyguluyorum. Hedefim `summary.py` ve `summary.json` dosyalarını hazırlayıp doğrulamadan geçirmek.",
+    "`greeting.txt` isteğini sıraya aldım. Önce çalışan incelemeyi ve özet doğrulamasını tamamlayacağım, ardından dosyayı oluşturacağım.",
+    "İnceleme 7 satır buldu; 5 satır `paid`. CSV alanlarını ve doğrulayıcının beklediği şemayı kontrol ettim. Şimdi özetleyiciyi yazıp çalıştıracağım.",
+    "Özet doğrulaması geçti (`SUMMARY_VALIDATION_PASSED`). Şimdi sıradaki isteğiniz olan `greeting.txt` dosyasını oluşturup içeriğini kontrol edeceğim."
+  ],
+  "task_a_verified_output": {
+    "paid_orders": 5,
+    "units": 9,
+    "revenue": "59.80",
+    "by_product": {
+      "Notebook": {
+        "units": 3,
+        "revenue": "37.50"
+      },
+      "Pen": {
+        "units": 4,
+        "revenue": "4.80"
+      },
+      "Mug": {
+        "units": 2,
+        "revenue": "17.50"
+      }
+    }
+  },
+  "limits": "One synthetic live conversation; no control run, no claim of universal compliance, and no desktop UI or Claude evaluation."
+}

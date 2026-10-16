@@ -58,7 +58,9 @@ Task state belongs to one conversation. It must not leak into the public skill r
 
 The [16 evaluation cases](skills/task-continuity/references/behavior-cases.md) cover independent additions, mixed messages, corrections, questions, ideas, explicit switching, stopping, interrupted tools, blockers, permissions, compaction, and premature completion.
 
-These are behavioral test scenarios with expected observations, not a completed benchmark. This is an instruction-only skill: it does not modify the app's message scheduler, prevent host interruptions, or guarantee model compliance. It helps the agent preserve the correct objective when execution resumes.
+One [live Codex conversation passed on 17 October 2026](docs/codex-live-validation-2026-10-17.md): an independent second request arrived mid-turn, task A was completed and independently validated, and task B started afterward. The run used installed Codex 0.158.0 with `gpt-6-sol`; all 10 recorded assertions passed.
+
+The 16 cases remain evaluation specifications, not a completed benchmark. The live run exercised one scenario through Codex app-server; desktop UI input handling and Claude Code were outside its scope. This is an instruction-only skill: it does not modify the app's message scheduler, prevent host interruptions, or guarantee model compliance. It helps the agent preserve the correct objective when execution resumes.
 
 ## Contribute
 
