@@ -60,7 +60,9 @@ The [16 evaluation cases](skills/task-continuity/references/behavior-cases.md) c
 
 One [live Codex conversation passed on 17 October 2026](docs/codex-live-validation-2026-10-17.md): an independent second request arrived mid-turn, task A was completed and independently validated, and task B started afterward. The run used installed Codex 0.158.0 with `gpt-6-sol`; all 10 recorded assertions passed.
 
-The 16 cases remain evaluation specifications, not a completed benchmark. The live run exercised one scenario through Codex app-server; desktop UI input handling and Claude Code were outside its scope. This is an instruction-only skill: it does not modify the app's message scheduler, prevent host interruptions, or guarantee model compliance. It helps the agent preserve the correct objective when execution resumes.
+A second [stop-with-tool-in-flight test](docs/codex-stop-validation-2026-10-17.md) had a **partial-pass result**. An acknowledged queued task never started after a natural-language stop, and the running job was canceled before its pending write. However, cancellation took about 35.5 seconds and the host started three status-only continuation turns for a persistent goal. The original harness's stronger zero-following-turns assertion failed (11/12 assertions passed). This is evidence for queued-work suppression in that run, with clear limits on immediate cancellation and host scheduling.
+
+The 16 cases remain evaluation specifications, not a completed benchmark. These two live scenarios used Codex app-server; desktop UI input handling, native client Queue removal, and Claude Code were outside their scope. This is an instruction-only skill: it does not modify the app's message scheduler, prevent host interruptions, or guarantee model compliance. It helps the agent preserve the correct objective when execution resumes.
 
 ## Contribute
 
